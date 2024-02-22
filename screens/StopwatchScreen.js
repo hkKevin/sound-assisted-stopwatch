@@ -1,16 +1,33 @@
+import { useState, useEffect } from 'react'
 import { View, Text, SafeAreaView, StyleSheet, Pressable, Dimensions } from 'react-native'
 
 export default function StopwatchScreen() {
+  const [startStopwatch, setStartStopwatch] = useState(false)
+
+  useEffect(() => {
+    console.log('@ startStopwatch', startStopwatch)
+    if (startStopwatch) {
+      // determine if it start from 0 or countinue the existing stopwatch
+    } else {
+      // pause the stopwatch
+      // Flash the time text
+    }
+  }, [startStopwatch])
 
   const pressHandler = () => {
-    console.log('pressed~')
+    setStartStopwatch(prev => !prev)
   }
+
+
 
   return (
     <View style={styles.rootView}>
       <Text style={styles.pageTitle}>Stopwatch</Text>
       <View style={styles.timeContainer}>
-        <Pressable onPress={pressHandler} style={styles.timeCircle}>
+        <Pressable 
+          onPress={pressHandler}
+          style={[styles.timeCircle, (startStopwatch ? styles.start : styles.pause)]}
+        >
           <Text style={styles.timeContent}>1:10:01</Text>
         </Pressable>
       </View>
@@ -43,5 +60,11 @@ const styles = StyleSheet.create({
   timeContent: {
     fontSize: 70,
     color: 'darkblue',
+  },
+  start: {
+    backgroundColor: 'green'
+  },
+  pause: {
+    backgroundColor: 'salmon'
   }
 })
