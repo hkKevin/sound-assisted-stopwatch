@@ -5,7 +5,7 @@ export default function StopwatchScreen() {
   const [startStopwatch, setStartStopwatch] = useState(false)
 
   useEffect(() => {
-    console.log('@ startStopwatch', startStopwatch)
+    // console.log('@ startStopwatch', startStopwatch)
     if (startStopwatch) {
       // determine if it start from 0 or countinue the existing stopwatch
     } else {
