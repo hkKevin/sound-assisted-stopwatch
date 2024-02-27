@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 // import StopwatchScreen from './screens/StopwatchScreen';
-import Main from './components/Main'
+import Main from './components/Main';
 
 export default function App() {
   return (
